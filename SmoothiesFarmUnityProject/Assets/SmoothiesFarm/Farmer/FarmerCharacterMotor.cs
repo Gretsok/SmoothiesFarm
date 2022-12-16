@@ -69,7 +69,8 @@ namespace SmoothiesFarm.Farmer
 
         private void OnDisable()
         {
-            
+            m_groundDetection.onTriggerEntered -= HandleGroundDetectionTriggered;
+            m_groundDetection.onTriggerExited -= HandleGroundDetectionUntriggered;
         }
 
         void FixedUpdate()
