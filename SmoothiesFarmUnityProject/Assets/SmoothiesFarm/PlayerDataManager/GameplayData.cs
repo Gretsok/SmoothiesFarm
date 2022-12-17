@@ -31,5 +31,10 @@ namespace SmoothiesFarm.PlayerDataManager
         [Header("Reward")]
         public int TEMP_REWARD_ARCADE = 3;
 
+        [Header("Misc Rules")]
+        [SerializeField]
+        private float m_timeBetweenDelivering = 60f;
+        public float TimeBetweenDelivering => m_timeBetweenDelivering;
+
     }
 }

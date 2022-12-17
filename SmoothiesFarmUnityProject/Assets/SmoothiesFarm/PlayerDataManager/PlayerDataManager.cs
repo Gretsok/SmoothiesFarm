@@ -53,6 +53,9 @@ namespace SmoothiesFarm.PlayerDataManager
         private List<Farm.FarmManager.SFarmCellInfos> m_farmCells = null;
         public List<Farm.FarmManager.SFarmCellInfos> FarmCells => m_farmCells;
 
+        private float m_timeOfEndOfLastDelivering = 0;
+        public float TimeOfEndOfLastDelivering => m_timeOfEndOfLastDelivering;
+
         public int Bonbons 
         { 
             get { return m_bonbons; } 
@@ -126,6 +129,11 @@ namespace SmoothiesFarm.PlayerDataManager
                 return true;
             }
             return false;
+        }
+
+        public void NotifyEndOfDelivering()
+        {
+            m_timeOfEndOfLastDelivering = Time.time;
         }
     }
 }
