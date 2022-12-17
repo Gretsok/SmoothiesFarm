@@ -1539,7 +1539,7 @@ PrefabInstance:
     - target: {fileID: 833155387108277953, guid: 085a98d19a536a94aa06b7cc7c3d66f1,
         type: 3}
       propertyPath: m_FrequencyGain
-      value: 0
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 833155387774552962, guid: 085a98d19a536a94aa06b7cc7c3d66f1,
         type: 3}

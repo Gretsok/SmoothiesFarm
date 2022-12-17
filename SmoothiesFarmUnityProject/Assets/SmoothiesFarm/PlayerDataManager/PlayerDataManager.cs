@@ -131,6 +131,11 @@ namespace SmoothiesFarm.PlayerDataManager
             return false;
         }
 
+        public void AddSmoothiesPoint(int a_smoothiesPoints)
+        {
+            SmoothiesPoint += a_smoothiesPoints;
+        }
+
         public void NotifyEndOfDelivering()
         {
             m_timeOfEndOfLastDelivering = Time.time;

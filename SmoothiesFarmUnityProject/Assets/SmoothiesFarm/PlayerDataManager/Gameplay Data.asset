@@ -21,3 +21,4 @@ MonoBehaviour:
   m_costToPlayOnArcadeMachine: 3
   m_costToExtendFarm: 20
   TEMP_REWARD_ARCADE: 3
+  m_timeBetweenDelivering: 10

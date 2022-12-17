@@ -212,6 +212,7 @@ GameObject:
   - component: {fileID: 6122256028693133937}
   - component: {fileID: 6122256028693133939}
   - component: {fileID: 6122256028693133943}
+  - component: {fileID: 8328831592497979824}
   m_Layer: 0
   m_Name: FarmerCharacter
   m_TagString: Untagged
@@ -298,6 +299,18 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &8328831592497979824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6122256028693133948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f87be6c8d0d3394cb82738eaf0567ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6122256028982141444
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,6 +322,8 @@ GameObject:
   - component: {fileID: 6122256028982144506}
   - component: {fileID: 6122256028982144507}
   - component: {fileID: 6122256028982144505}
+  - component: {fileID: 3353422388383104142}
+  - component: {fileID: 3822626370835481169}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -387,6 +402,39 @@ MonoBehaviour:
   m_rigidbody: {fileID: 6122256028693133939}
   m_virtualCamera: {fileID: 6122256028982144507}
   m_enableBobbing: 1
+--- !u!95 &3353422388383104142
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6122256028982141444}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 945a4a5521529164fb94fb46f903b495, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3822626370835481169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6122256028982141444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2014d512471331d4d8a0278c0aa03778, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_animator: {fileID: 3353422388383104142}
 --- !u!1 &6122256029044149092
 GameObject:
   m_ObjectHideFlags: 0
