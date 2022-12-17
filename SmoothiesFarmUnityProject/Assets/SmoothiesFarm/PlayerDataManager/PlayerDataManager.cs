@@ -117,5 +117,15 @@ namespace SmoothiesFarm.PlayerDataManager
         {
             m_farmCells = a_cells;
         }
+
+        public bool TryToPay(int a_amountOfSmoothies)
+        {
+            if(m_smoothiesPoints >= a_amountOfSmoothies)
+            {
+                SmoothiesPoint -= a_amountOfSmoothies;
+                return true;
+            }
+            return false;
+        }
     }
 }

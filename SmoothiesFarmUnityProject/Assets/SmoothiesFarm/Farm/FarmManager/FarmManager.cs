@@ -87,8 +87,8 @@ namespace SmoothiesFarm.Farm.FarmManager
                 int randCell = UnityEngine.Random.Range(0, m_instantiatedOwnedFarmCell.Count);
                 var unicorn = Instantiate(m_unicornMotorPrefab,
                     m_instantiatedOwnedFarmCell[randCell].transform.position + Vector3.up
-                    + m_instantiatedOwnedFarmCell[randCell].transform.forward * UnityEngine.Random.Range(-8f, 8f)
-                    + m_instantiatedOwnedFarmCell[randCell].transform.right * UnityEngine.Random.Range(-8f, 8f),
+                    + m_instantiatedOwnedFarmCell[randCell].transform.forward * UnityEngine.Random.Range(-3f, 3f)
+                    + m_instantiatedOwnedFarmCell[randCell].transform.right * UnityEngine.Random.Range(-3f, 3f),
                     Quaternion.identity,
                     transform);
                 m_instantiatedUnicorns.Add(unicorn);
@@ -99,6 +99,7 @@ namespace SmoothiesFarm.Farm.FarmManager
         {
             if (m_ownedCellsInfos.Find(c => c.x == x && c.y == y) != null) return;
             if (y < 0 || x < -m_columnsOfCellToAddOnEachSide || x > m_columnsOfCellToAddOnEachSide) return;
+            if (!PlayerDataManager.PlayerDataManager.Instance.TryToPay(PlayerDataManager.PlayerDataManager.Instance.GameplayData.CostToExtendFarm)) return;
 
             var cell = Instantiate(m_ownedFarmCellPrefab,
                                 m_firstOwnedFarm.transform.position + m_firstOwnedFarm.transform.right * x * 10f + m_firstOwnedFarm.transform.forward * y * 10f,

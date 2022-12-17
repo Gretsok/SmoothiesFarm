@@ -24,6 +24,9 @@ namespace SmoothiesFarm.PlayerDataManager
         [SerializeField]
         private int m_costToPlayOnArcadeMachine = 10;
         public int CostToPlayOnArcadeMachine => m_costToPlayOnArcadeMachine;
+        [SerializeField]
+        private int m_costToExtendFarm = 5;
+        public int CostToExtendFarm => m_costToExtendFarm;
 
     }
 }
