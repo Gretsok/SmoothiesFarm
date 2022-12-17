@@ -15,11 +15,6 @@ namespace SmoothiesFarm.Farm.Breeding
         private int m_bonbonsLeft = 0;
         public Action<int> OnBonbonConsumed = null;
 
-        private void Awake()
-        {
-            SetBonbonsLeft(5);
-        }
-
         private void OnEnable()
         {
             m_characterMotor.OnAttackPerformed += HandleAttackPerformed;

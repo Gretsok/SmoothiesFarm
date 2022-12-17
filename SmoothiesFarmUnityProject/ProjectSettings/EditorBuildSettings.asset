@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/SmoothiesFarm/MainMenu/MainMenu.unity
     guid: d847d35f28c754448ab6fdadbd93836d
+  - enabled: 1
+    path: Assets/SmoothiesFarm/Farm/Farm.unity
+    guid: 5ad0b586813187d49aae82af313137f0
   m_configObjects: {}

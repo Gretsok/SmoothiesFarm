@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace SmoothiesFarm.MainMenu
 {
@@ -6,7 +7,8 @@ namespace SmoothiesFarm.MainMenu
     {
         public void Play()
         {
-            Debug.Log("Play");
+            PlayerDataManager.PlayerDataManager.DeleteManager();
+            SceneManager.LoadSceneAsync(1);
         }
 
         public void Quit()
