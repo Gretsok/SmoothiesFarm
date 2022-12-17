@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace SmoothiesFarm.Farmer
@@ -28,6 +29,8 @@ namespace SmoothiesFarm.Farmer
         private bool m_isGrounded = false;
 
 
+        public Action OnAttackPerformed = null;
+        
         private float m_verticalCameraRotation;
 
 
@@ -105,28 +108,36 @@ namespace SmoothiesFarm.Farmer
             if (Time.time - m_lastTimeOfAttack < m_attackCooldown) return;
             m_lastTimeOfAttack = Time.time;
 
-            Debug.Log("ATTACK");
+            OnAttackPerformed?.Invoke();
         }
 
         private void HandleJumping()
         {
             if (!IsJumping) return;
-            if (Time.time - m_lastTimeOfJump < 1f) return;
+            if (Time.time - m_lastTimeOfJump < 0.2f) return;
             if (!m_isGrounded) return;
             m_lastTimeOfJump = Time.time;
 
             m_rigidbody.AddForce(Vector3.up * m_jumpVelocity, ForceMode.VelocityChange);
         }
 
-
+        private List<Collider> m_groundedDetected = new List<Collider>();
         private void HandleGroundDetectionUntriggered(Collider obj)
         {
-            m_isGrounded = false;
+            if (m_groundedDetected.Contains(obj))
+            {
+                m_groundedDetected.RemoveAll(x => x == obj);
+            }
+            m_isGrounded = m_groundedDetected.Count > 0;
         }
 
         private void HandleGroundDetectionTriggered(Collider obj)
         {
-            m_isGrounded = true;
+            if (!m_groundedDetected.Contains(obj))
+            {
+                m_groundedDetected.Add(obj);
+            }
+            m_isGrounded = m_groundedDetected.Count > 0;
         }
     }
 }
