@@ -1,18 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
-public class SFarmCellInfos : MonoBehaviour
+namespace SmoothiesFarm.Farm.FarmManager
 {
-    // Start is called before the first frame update
-    void Start()
+    [System.Serializable]
+    public class SFarmCellInfos
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public int x = 0;
+        public int y = 0;
     }
 }

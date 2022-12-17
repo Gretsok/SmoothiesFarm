@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace SmoothiesFarm.PlayerDataManager
@@ -15,6 +16,9 @@ namespace SmoothiesFarm.PlayerDataManager
         [SerializeField]
         private int m_startingNumberOfUnicorn = 1;
         public int StartingNumberOfUnicorn => m_startingNumberOfUnicorn;
+        [SerializeField]
+        private List<Farm.FarmManager.SFarmCellInfos> m_startingFarmCells = null;
+        public List<Farm.FarmManager.SFarmCellInfos> StartingFarmCells => m_startingFarmCells;
 
         [Header("Costs")]
         [SerializeField]

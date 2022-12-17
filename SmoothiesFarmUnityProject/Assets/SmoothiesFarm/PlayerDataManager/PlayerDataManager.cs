@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace SmoothiesFarm.PlayerDataManager
@@ -49,6 +50,8 @@ namespace SmoothiesFarm.PlayerDataManager
         private int m_bonbons = 0;
         private int m_smoothiesPoints = 0;
         private int m_numberOfUnicorns = 0;
+        private List<Farm.FarmManager.SFarmCellInfos> m_farmCells = null;
+        public List<Farm.FarmManager.SFarmCellInfos> FarmCells => m_farmCells;
 
         public int Bonbons 
         { 
@@ -93,6 +96,7 @@ namespace SmoothiesFarm.PlayerDataManager
             Bonbons = m_gameplayData.StartingNumberOfBonbons;
             m_smoothiesPoints = m_gameplayData.StartingNumberOfSmoothiersPoints;
             m_numberOfUnicorns = m_gameplayData.StartingNumberOfUnicorn;
+            m_farmCells = new List<Farm.FarmManager.SFarmCellInfos>(m_gameplayData.StartingFarmCells);
         }
 
         public void SetUpNewScene(Farmer.FarmerCharacterMotor a_farmerMotor)
@@ -107,6 +111,11 @@ namespace SmoothiesFarm.PlayerDataManager
         private void HandleBonbonsConsumed(int a_bonbonLeft)
         {
             Bonbons = a_bonbonLeft;
+        }
+
+        public void SaveFarmCells(List<Farm.FarmManager.SFarmCellInfos> a_cells)
+        {
+            m_farmCells = a_cells;
         }
     }
 }

@@ -15,4 +15,7 @@ MonoBehaviour:
   m_startingNumberOfBonbons: 1
   m_startingNumberOfSmoothiesPoints: 10
   m_startingNumberOfUnicorn: 1
+  m_startingFarmCells:
+  - x: 0
+    y: 0
   m_costToPlayOnArcadeMachine: 10

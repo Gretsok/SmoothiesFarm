@@ -15,6 +15,9 @@ namespace SmoothiesFarm.Farm.Breeding
         private int m_bonbonsLeft = 0;
         public Action<int> OnBonbonConsumed = null;
 
+        public Action<string> OnInteractionIndicationUpdated = null;
+
+        private Interaction.Interactable m_currentInteractableInSight = null;
         private void OnEnable()
         {
             m_characterMotor.OnAttackPerformed += HandleAttackPerformed;
@@ -37,7 +40,40 @@ namespace SmoothiesFarm.Farm.Breeding
                         collisionHandler.CharacterMotor.gameObject.transform.rotation);
                     ConsumeOneBonbon();
                 }
+                if(hitInfo.collider.TryGetComponent(out Interaction.Interactable interactable))
+                {
+                    interactable.Interact();
+                }
             }
+        }
+
+        private void FixedUpdate()
+        {
+            var previousInteractable = m_currentInteractableInSight;
+            m_currentInteractableInSight = GetInteractableInSight();
+            if(previousInteractable != m_currentInteractableInSight)
+            {
+                if (m_currentInteractableInSight)
+                {
+                    OnInteractionIndicationUpdated?.Invoke(m_currentInteractableInSight.GetInfoText());
+                }
+                else
+                {
+                    OnInteractionIndicationUpdated?.Invoke("");
+                }
+            }
+        }
+
+        private Interaction.Interactable GetInteractableInSight()
+        {
+            if (Physics.Raycast(m_sightOrigin.position, m_sightOrigin.forward, out RaycastHit hitInfo, m_sightDistance))
+            {
+                if (hitInfo.collider.TryGetComponent(out Interaction.Interactable interactable))
+                {
+                    return interactable;
+                }
+            }
+            return null;
         }
 
         public void SetBonbonsLeft(int a_bonbonsLeft)

@@ -83,6 +83,17 @@ namespace SmoothiesFarm.Farmer
             HandleJumping();
         }
 
+        private void Update()
+        {
+            for(int i = m_groundedDetected.Count - 1; i >= 0; --i)
+            {
+                if(m_groundedDetected[i] == null || !m_groundedDetected[i].gameObject.activeInHierarchy || !m_groundedDetected[i].enabled)
+                {
+                    m_groundedDetected.RemoveAt(i);
+                }
+            }
+        }
+
         private void HandleMovement()
         {
             float magnitude = m_movementsInputs.magnitude;
