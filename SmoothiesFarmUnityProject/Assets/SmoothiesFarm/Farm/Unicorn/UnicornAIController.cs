@@ -42,9 +42,7 @@ namespace SmoothiesFarm.Farm.Unicorn
                 if (m_isWalking)
                 {
                     m_timeToUse = Random.Range(m_walkDuration.x, m_walkDuration.y);
-                    float deg = Random.Range(0f, 360f);
-                    var direction = new Vector3(Mathf.Cos(deg), 0f, Mathf.Sin(deg));
-                    transform.LookAt(transform.position + transform.TransformDirection(direction));
+                    ChangeToRandomDirection();
                 }
                 else
                 {
@@ -61,22 +59,20 @@ namespace SmoothiesFarm.Farm.Unicorn
                 bool canGoForward = true;
                 for(int i = 0; i < m_sightOrigins.Count; ++i)
                 {
-                    if (Physics.Raycast(m_sightOrigins[i].position, transform.forward, 0.3f))
+                    if (Physics.Raycast(m_sightOrigins[i].position, transform.forward, 0.5f))
                     {
                         canGoForward = false;
-                        Debug.DrawLine(m_sightOrigins[i].position, m_sightOrigins[i].position + transform.forward * 0.3f, Color.red);
+                        Debug.DrawLine(m_sightOrigins[i].position, m_sightOrigins[i].position + transform.forward * 0.5f, Color.red);
                         break;
                     }
                     else
                     {
-                        Debug.DrawLine(m_sightOrigins[i].position, m_sightOrigins[i].position + transform.forward * 0.3f, Color.green);
+                        Debug.DrawLine(m_sightOrigins[i].position, m_sightOrigins[i].position + transform.forward * 0.5f, Color.green);
                     }
                 }
                 if (!canGoForward)
                 {
-                    float deg = Random.Range(0f, 360f);
-                    var direction = new Vector3(Mathf.Cos(deg), 0f, Mathf.Sin(deg));
-                    transform.LookAt(transform.position + transform.TransformDirection(direction));
+                    ChangeToRandomDirection();
                 }
                 m_motor.SetMovementInputs(new Vector2(0f, 1f));
             }
@@ -86,6 +82,12 @@ namespace SmoothiesFarm.Farm.Unicorn
             }
         }
 
-        
+        private void ChangeToRandomDirection()
+        {
+            float deg = Random.Range(0f, 360f);
+            var direction = new Vector3(Mathf.Cos(deg), 0f, Mathf.Sin(deg));
+            m_motor.SetDirection(transform.TransformDirection(direction));
+        }
+
     }
 }
