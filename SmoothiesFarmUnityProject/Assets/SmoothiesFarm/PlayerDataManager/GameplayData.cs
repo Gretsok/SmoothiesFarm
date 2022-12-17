@@ -28,5 +28,8 @@ namespace SmoothiesFarm.PlayerDataManager
         private int m_costToExtendFarm = 5;
         public int CostToExtendFarm => m_costToExtendFarm;
 
+        [Header("Reward")]
+        public int TEMP_REWARD_ARCADE = 3;
+
     }
 }

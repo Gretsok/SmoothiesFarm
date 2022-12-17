@@ -18,27 +18,37 @@ namespace SmoothiesFarm.Farm.Breeding
         public Action<string> OnInteractionIndicationUpdated = null;
 
         private Interaction.Interactable m_currentInteractableInSight = null;
+
+        private void Start()
+        {
+            SetBonbonsLeft(PlayerDataManager.PlayerDataManager.Instance.Bonbons);
+        }
+
         private void OnEnable()
         {
             m_characterMotor.OnAttackPerformed += HandleAttackPerformed;
+            PlayerDataManager.PlayerDataManager.Instance.OnBonbonValueChanged += SetBonbonsLeft;
         }
 
         private void OnDisable()
         {
             m_characterMotor.OnAttackPerformed -= HandleAttackPerformed;
+            PlayerDataManager.PlayerDataManager.Instance.OnBonbonValueChanged -= SetBonbonsLeft;
         }
 
         private void HandleAttackPerformed()
         {
-            if (m_bonbonsLeft <= 0) return;
+            
             if(Physics.Raycast(m_sightOrigin.position, m_sightOrigin.forward, out RaycastHit hitInfo, m_sightDistance))
             {
                 if(hitInfo.collider.TryGetComponent(out Unicorn.UnicornCollisionHandler collisionHandler))
                 {
+                    if (m_bonbonsLeft <= 0) return;
                     Instantiate(collisionHandler.CharacterMotor.gameObject,
                         collisionHandler.CharacterMotor.gameObject.transform.position + Vector3.up * 2f,
                         collisionHandler.CharacterMotor.gameObject.transform.rotation);
-                    ConsumeOneBonbon();
+                    HandleUnicornSpawned();
+
                 }
                 if(hitInfo.collider.TryGetComponent(out Interaction.Interactable interactable))
                 {
@@ -81,10 +91,11 @@ namespace SmoothiesFarm.Farm.Breeding
             m_bonbonsLeft = a_bonbonsLeft;
         }
 
-        private void ConsumeOneBonbon()
+        private void HandleUnicornSpawned()
         {
             --m_bonbonsLeft;
-            OnBonbonConsumed?.Invoke(m_bonbonsLeft);
+            PlayerDataManager.PlayerDataManager.Instance.ConsumeBonbon();
+            PlayerDataManager.PlayerDataManager.Instance.AddUnicorn();
         }
     }
 }

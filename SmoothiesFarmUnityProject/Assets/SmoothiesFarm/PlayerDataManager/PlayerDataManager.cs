@@ -98,24 +98,24 @@ namespace SmoothiesFarm.PlayerDataManager
             m_numberOfUnicorns = m_gameplayData.StartingNumberOfUnicorn;
             m_farmCells = new List<Farm.FarmManager.SFarmCellInfos>(m_gameplayData.StartingFarmCells);
         }
-
-        public void SetUpNewScene(Farmer.FarmerCharacterMotor a_farmerMotor)
+        public void AddBonbons(int a_bonbonToAdd)
         {
-            if(a_farmerMotor.TryGetComponent(out Farm.Breeding.FarmerBreedingController breedingController))
-            {
-                breedingController.SetBonbonsLeft(m_bonbons);
-                breedingController.OnBonbonConsumed += HandleBonbonsConsumed;
-            }
+            Bonbons += a_bonbonToAdd;
         }
 
-        private void HandleBonbonsConsumed(int a_bonbonLeft)
+        public void ConsumeBonbon()
         {
-            Bonbons = a_bonbonLeft;
+            --Bonbons;
         }
 
         public void SaveFarmCells(List<Farm.FarmManager.SFarmCellInfos> a_cells)
         {
             m_farmCells = a_cells;
+        }
+
+        public void AddUnicorn()
+        {
+            ++NumberOfUnicorns;
         }
 
         public bool TryToPay(int a_amountOfSmoothies)

@@ -12,7 +12,7 @@ namespace SmoothiesFarm.Farm.FarmManager.Test
 
         public void SetUpManager()
         {
-            m_farmManager.SetUpFarm(m_cells);
+            //m_farmManager.SetUpFarm(m_cells);
         }
     }
 

@@ -18,4 +18,6 @@ MonoBehaviour:
   m_startingFarmCells:
   - x: 0
     y: 0
-  m_costToPlayOnArcadeMachine: 10
+  m_costToPlayOnArcadeMachine: 3
+  m_costToExtendFarm: 20
+  TEMP_REWARD_ARCADE: 3

@@ -27,7 +27,17 @@ namespace SmoothiesFarm.Farm.FarmManager
         private Unicorn.UnicornCharacterMotor m_unicornMotorPrefab = null;
         private List<Unicorn.UnicornCharacterMotor> m_instantiatedUnicorns = new List<Unicorn.UnicornCharacterMotor>();
 
-        public void SetUpFarm(List<SFarmCellInfos> a_ownedCellInfos)
+        private void Start()
+        {
+            SetUpFarm(PlayerDataManager.PlayerDataManager.Instance.FarmCells);
+        }
+
+        private void OnDestroy()
+        {
+            PlayerDataManager.PlayerDataManager.Instance.SaveFarmCells(OwnedCellsInfos);
+        }
+
+        private void SetUpFarm(List<SFarmCellInfos> a_ownedCellInfos)
         {
             m_instantiatedOwnedFarmCell = new List<OwnedFarmCell>();
             m_instantiatedCloudFarmCell = new List<CloudFarmCell>();
