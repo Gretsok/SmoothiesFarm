@@ -51,4 +51,5 @@ MonoBehaviour:
   m_columnsOfCellToAddOnEachSide: 7
   m_linesToAdd: 15
   m_firstOwnedFarm: {fileID: 0}
-  m_unicornMotorPrefab: {fileID: 0}
+  m_unicornMotorPrefab: {fileID: 382008617664053205, guid: 22ae5b97cd2ce4943b77518828dafc7b,
+    type: 3}
