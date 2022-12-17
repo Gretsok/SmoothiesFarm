@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a438e16236ce7cd49965c174a2158df7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_infoText: Interact
+  m_infoText: Extend for 20 smoothies points
   m_interactionEvent:
     m_PersistentCalls:
       m_Calls:
@@ -512,7 +512,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a438e16236ce7cd49965c174a2158df7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_infoText: Interact
+  m_infoText: Extend for 20 smoothies points
   m_interactionEvent:
     m_PersistentCalls:
       m_Calls:
@@ -602,7 +602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a438e16236ce7cd49965c174a2158df7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_infoText: Interact
+  m_infoText: Extend for 20 smoothies points
   m_interactionEvent:
     m_PersistentCalls:
       m_Calls:
@@ -692,7 +692,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a438e16236ce7cd49965c174a2158df7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_infoText: Interact
+  m_infoText: Extend for 20 smoothies points
   m_interactionEvent:
     m_PersistentCalls:
       m_Calls:
