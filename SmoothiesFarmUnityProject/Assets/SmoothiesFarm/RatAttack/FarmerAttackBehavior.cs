@@ -14,8 +14,12 @@ namespace SmoothiesFarm.RatAttack
         private float m_sightDistance = 3f;
 
         [SerializeField]
-        private int m_damageToDeal = 5;
-        
+        private int m_damageToDealWithBaseBall = 5;
+        [SerializeField]
+        private int m_damageToDealWithKnife = 10;
+        [SerializeField]
+        private int m_damageToDealWithFork = 40;
+
 
         private void OnEnable()
         {
@@ -34,11 +38,34 @@ namespace SmoothiesFarm.RatAttack
             {
                 if(hitInfo.collider.TryGetComponent(out Farm.Unicorn.UnicornCollisionHandler collisionHandler))
                 {
-                    collisionHandler.CharacterMotor.GetComponent<HealthHandlingController>().TakeDamage(m_damageToDeal, true);  
+                    if (PlayerDataManager.PlayerDataManager.Instance.HasUnlockedFork)
+                    {
+                        collisionHandler.CharacterMotor.GetComponent<HealthHandlingController>().TakeDamage(m_damageToDealWithFork, true);
+                    }
+                    else if (PlayerDataManager.PlayerDataManager.Instance.HasUnlockedKnife)
+                    {
+                        collisionHandler.CharacterMotor.GetComponent<HealthHandlingController>().TakeDamage(m_damageToDealWithKnife, true);
+                    }
+                    else
+                    {
+                        collisionHandler.CharacterMotor.GetComponent<HealthHandlingController>().TakeDamage(m_damageToDealWithBaseBall, true);
+                    }
                 }
                 else if (hitInfo.collider.TryGetComponent(out HealthHandlingController healthController))
                 {
-                    healthController.TakeDamage(m_damageToDeal, true);
+                    if(PlayerDataManager.PlayerDataManager.Instance.HasUnlockedFork)
+                    {
+                        healthController.TakeDamage(m_damageToDealWithFork, true);
+                    }
+                    else if(PlayerDataManager.PlayerDataManager.Instance.HasUnlockedKnife)
+                    {
+                        healthController.TakeDamage(m_damageToDealWithKnife, true);
+                    }
+                    else
+                    {
+                        healthController.TakeDamage(m_damageToDealWithBaseBall, true);
+                    }
+                    
                 }
             }
         }

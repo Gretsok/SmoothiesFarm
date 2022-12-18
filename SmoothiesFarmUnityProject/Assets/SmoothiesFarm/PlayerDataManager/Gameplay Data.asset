@@ -21,6 +21,8 @@ MonoBehaviour:
   m_costToPlayOnArcadeMachine: 3
   m_costToExtendFarm: 20
   m_costToBuyFirstUnicorn: 1
+  m_bonbonCostToUnlockKnife: 4
+  m_bonbonCostToUnlockFork: 8
   m_smoothiesPerUnicornKilled: 2
   m_timeBetweenDelivering: 20
   m_unicornPerFarmCell: 10

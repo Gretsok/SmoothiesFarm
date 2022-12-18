@@ -164,8 +164,10 @@ MonoBehaviour:
   m_animationController: {fileID: 3586687264805661779}
   m_characterMotor: {fileID: 5781588474761532531}
   m_sightOrigin: {fileID: 5781588475016987640}
-  m_sightDistance: 3
-  m_damageToDeal: 5
+  m_sightDistance: 5
+  m_damageToDealWithBaseBall: 5
+  m_damageToDealWithKnife: 10
+  m_damageToDealWithFork: 40
 --- !u!4 &5781588475016987640 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6122256028982144506, guid: 5f95a536bff04d84fa7349ee3a9d6190,
