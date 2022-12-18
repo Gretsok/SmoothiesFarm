@@ -102,6 +102,7 @@ namespace SmoothiesFarm.PlayerDataManager
         public Action<int> OnBonbonValueChanged = null;
         public Action<int> OnSmoothiesValueChanged = null;
         public Action<int> OnUnicornValueChanged = null;
+        public Action OnFarmCellsUpdated = null;
 
         private void SetUpManager()
         {
@@ -109,6 +110,7 @@ namespace SmoothiesFarm.PlayerDataManager
             m_smoothiesPoints = m_gameplayData.StartingNumberOfSmoothiersPoints;
             m_numberOfUnicorns = m_gameplayData.StartingNumberOfUnicorn;
             m_farmCells = new List<Farm.FarmManager.SFarmCellInfos>(m_gameplayData.StartingFarmCells);
+            m_timeOfEndOfLastDelivering = Time.time;
         }
         public void AddBonbons(int a_bonbonToAdd)
         {
@@ -123,6 +125,12 @@ namespace SmoothiesFarm.PlayerDataManager
         public void SaveFarmCells(List<Farm.FarmManager.SFarmCellInfos> a_cells)
         {
             m_farmCells = a_cells;
+            OnFarmCellsUpdated?.Invoke();
+        }
+
+        public bool CanAddMoreUnicorn()
+        {
+            return m_numberOfUnicorns < GameplayData.UnicornPerFarmCell * FarmCells.Count;
         }
 
         public void AddUnicorn()

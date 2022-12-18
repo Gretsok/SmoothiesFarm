@@ -43,11 +43,13 @@ namespace SmoothiesFarm.Farm.Breeding
             {
                 if(hitInfo.collider.TryGetComponent(out Unicorn.UnicornCollisionHandler collisionHandler))
                 {
-                    if (m_bonbonsLeft <= 0) return;
+                    if (m_bonbonsLeft <= 0 || !PlayerDataManager.PlayerDataManager.Instance.CanAddMoreUnicorn()) return;
                     Instantiate(collisionHandler.CharacterMotor.gameObject,
                         collisionHandler.CharacterMotor.gameObject.transform.position + Vector3.up * 2f,
                         collisionHandler.CharacterMotor.gameObject.transform.rotation);
-                    HandleUnicornSpawned();
+                    --m_bonbonsLeft;
+                    PlayerDataManager.PlayerDataManager.Instance.ConsumeBonbon();
+                    PlayerDataManager.PlayerDataManager.Instance.AddUnicorn();
 
                 }
                 if(hitInfo.collider.TryGetComponent(out Interaction.Interactable interactable))
@@ -91,11 +93,5 @@ namespace SmoothiesFarm.Farm.Breeding
             m_bonbonsLeft = a_bonbonsLeft;
         }
 
-        private void HandleUnicornSpawned()
-        {
-            --m_bonbonsLeft;
-            PlayerDataManager.PlayerDataManager.Instance.ConsumeBonbon();
-            PlayerDataManager.PlayerDataManager.Instance.AddUnicorn();
-        }
     }
 }

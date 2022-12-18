@@ -14,6 +14,7 @@ namespace SmoothiesFarm.RatAttack
             m_timeOfStart = Time.time;
         }
 
+
         private void Update()
         {
             if(Time.time - m_timeOfStart > m_durationWidget)

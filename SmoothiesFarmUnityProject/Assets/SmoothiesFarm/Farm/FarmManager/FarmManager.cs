@@ -144,6 +144,8 @@ namespace SmoothiesFarm.Farm.FarmManager
                 hasLeft = m_ownedCellsInfos.Find(c => c.x == m_instantiatedOwnedFarmCell[i].x - 1 && c.y == m_instantiatedOwnedFarmCell[i].y) == null;
                 m_instantiatedOwnedFarmCell[i].SetUpFences(hasFront, hasBack, hasRight, hasLeft);
             }
+
+            PlayerDataManager.PlayerDataManager.Instance.SaveFarmCells(OwnedCellsInfos);
         }
     }
 }

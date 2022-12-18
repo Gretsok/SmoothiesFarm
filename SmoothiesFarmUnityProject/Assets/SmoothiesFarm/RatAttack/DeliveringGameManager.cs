@@ -40,9 +40,7 @@ namespace SmoothiesFarm.RatAttack
         [SerializeField]
         private ParticleSystem m_ratDeathVFX = null;
 
-        [Header("Smoothies Management")]
-        [SerializeField]
-        private int m_smoothiesToEarnPerUnicornKilled = 1;
+
         private int m_totalSmoothiesEarned = 0;
         public int TotalSmoothiesEarned => m_totalSmoothiesEarned;
 
@@ -82,7 +80,7 @@ namespace SmoothiesFarm.RatAttack
             m_instantiatedUnicorns.Remove(obj.GetComponent<Farm.Unicorn.UnicornCharacterMotor>());
             if(a_fromPlayer)
             {
-                m_totalSmoothiesEarned += m_smoothiesToEarnPerUnicornKilled;
+                m_totalSmoothiesEarned += PlayerDataManager.PlayerDataManager.Instance.GameplayData.SmoothiesPerUnicornKilled;
             }
             PlayerDataManager.PlayerDataManager.Instance.RemoveUnicorn();
             Destroy(obj.gameObject);

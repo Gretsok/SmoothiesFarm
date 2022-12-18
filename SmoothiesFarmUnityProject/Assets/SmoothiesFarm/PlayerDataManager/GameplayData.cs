@@ -32,12 +32,19 @@ namespace SmoothiesFarm.PlayerDataManager
         public int CostToBuyFirstUnicorn => m_costToBuyFirstUnicorn;
 
         [Header("Reward")]
+        [SerializeField]
+        private int m_smoothiesPerUnicornKilled = 2;
+        public int SmoothiesPerUnicornKilled => m_smoothiesPerUnicornKilled;
+
         public int TEMP_REWARD_ARCADE = 3;
 
         [Header("Misc Rules")]
         [SerializeField]
         private float m_timeBetweenDelivering = 60f;
         public float TimeBetweenDelivering => m_timeBetweenDelivering;
+        [SerializeField]
+        private int m_unicornPerFarmCell = 10;
+        public int UnicornPerFarmCell => m_unicornPerFarmCell;
 
     }
 }
