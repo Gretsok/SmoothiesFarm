@@ -121,6 +121,11 @@ namespace SmoothiesFarm.PlayerDataManager
             ++NumberOfUnicorns;
         }
 
+        public void RemoveUnicorn()
+        {
+            --NumberOfUnicorns;
+        }
+
         public bool TryToPay(int a_amountOfSmoothies)
         {
             if(m_smoothiesPoints >= a_amountOfSmoothies)

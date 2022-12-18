@@ -20,6 +20,9 @@ namespace SmoothiesFarm.RatAttack
         private float m_attackCooldown = 0.5f;
         private float m_lastTimeOfAttack = 0f;
 
+        [SerializeField]
+        private RatAnimationController m_animationController = null;
+
         public void ChangeDirection(Vector3 a_newDirection)
         {
             transform.LookAt(transform.position + a_newDirection);
@@ -28,6 +31,7 @@ namespace SmoothiesFarm.RatAttack
         public void SetSpeed(float a_normalizedSpeed)
         {
             m_currentSpeed = m_maxSpeed * Mathf.Clamp01(a_normalizedSpeed);
+            m_animationController.SetSpeed(a_normalizedSpeed);
         }
 
         private void Awake()
@@ -38,13 +42,20 @@ namespace SmoothiesFarm.RatAttack
         // Update is called once per frame
         void FixedUpdate()
         {
-            m_rigidbody.velocity = transform.forward * m_currentSpeed;
+            var movementToApply = transform.forward * m_currentSpeed;
+            float magnitude = movementToApply.magnitude;
+            movementToApply.y = 0f;
+            movementToApply = movementToApply.normalized * magnitude;
+            movementToApply.y = m_rigidbody.velocity.y;
+
+            m_rigidbody.velocity = movementToApply;
         }
 
         public void Attack(Vector3 a_attackDirection)
         {
             if (Time.time - m_lastTimeOfAttack < m_attackCooldown) return;
 
+            m_animationController.Hit();
             if(Physics.Raycast(transform.position, a_attackDirection, out RaycastHit outInfo))
             {
                 if(outInfo.collider.TryGetComponent(out UnicornCollisionHandler unicornHandler))

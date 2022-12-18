@@ -1,5 +1,4 @@
 using SmoothiesFarm.Farmer.UI;
-using System;
 using UnityEngine;
 
 namespace SmoothiesFarm.Farm.Breeding.UI
@@ -19,8 +18,9 @@ namespace SmoothiesFarm.Farm.Breeding.UI
             }
         }
 
-        private void OnDisable()
+        protected override void OnDisable()
         {
+            base.OnDisable();
             if (CharacterMotor.TryGetComponent(out FarmerBreedingController breedingController))
             {
                 breedingController.OnInteractionIndicationUpdated -= HandleInteractionIndicationUpdated;

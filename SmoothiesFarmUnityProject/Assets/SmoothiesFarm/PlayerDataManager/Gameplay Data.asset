@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_startingNumberOfBonbons: 1
   m_startingNumberOfSmoothiesPoints: 10
-  m_startingNumberOfUnicorn: 1
+  m_startingNumberOfUnicorn: 2
   m_startingFarmCells:
   - x: 0
     y: 0

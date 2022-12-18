@@ -44,6 +44,7 @@ namespace SmoothiesFarm.RatAttack
         [SerializeField]
         private int m_smoothiesToEarnPerUnicornKilled = 1;
         private int m_totalSmoothiesEarned = 0;
+        public int TotalSmoothiesEarned => m_totalSmoothiesEarned;
 
         
 
@@ -83,6 +84,7 @@ namespace SmoothiesFarm.RatAttack
             {
                 m_totalSmoothiesEarned += m_smoothiesToEarnPerUnicornKilled;
             }
+            PlayerDataManager.PlayerDataManager.Instance.RemoveUnicorn();
             Destroy(obj.gameObject);
 
             if(m_instantiatedUnicorns.Count <= 0)
