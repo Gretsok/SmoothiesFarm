@@ -31,6 +31,13 @@ namespace SmoothiesFarm.PlayerDataManager
         private int m_costToBuyFirstUnicorn = 1;
         public int CostToBuyFirstUnicorn => m_costToBuyFirstUnicorn;
 
+        [SerializeField]
+        private int m_bonbonCostToUnlockKnife = 2;
+        public int BonbonCostToUnlockKnife => m_bonbonCostToUnlockKnife;
+        [SerializeField]
+        private int m_bonbonCostToUnlockFork = 4;
+        public int BonbonCostToUnlockFork => m_bonbonCostToUnlockFork;
+
         [Header("Reward")]
         [SerializeField]
         private int m_smoothiesPerUnicornKilled = 2;

@@ -22,7 +22,7 @@ namespace SmoothiesFarm.Farm
             m_deliveringTimeStarted = false;
             if (PlayerDataManager.PlayerDataManager.Instance.NumberOfUnicorns <= 0)
             {
-                if (PlayerDataManager.PlayerDataManager.Instance.TryToPay(PlayerDataManager.PlayerDataManager.Instance.GameplayData.CostToBuyFirstUnicorn))
+                if (PlayerDataManager.PlayerDataManager.Instance.TryToPayInSmoothies(PlayerDataManager.PlayerDataManager.Instance.GameplayData.CostToBuyFirstUnicorn))
                 {
                     PlayerDataManager.PlayerDataManager.Instance.AddUnicorn();
                     m_farmManager.AddUnicorn();

@@ -112,6 +112,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Delivering FarmerCharacter Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 6351926276865132401, guid: 5f95a536bff04d84fa7349ee3a9d6190,
+        type: 3}
+      propertyPath: m_hasWeapon
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f95a536bff04d84fa7349ee3a9d6190, type: 3}
 --- !u!114 &3586687264805661779 stripped

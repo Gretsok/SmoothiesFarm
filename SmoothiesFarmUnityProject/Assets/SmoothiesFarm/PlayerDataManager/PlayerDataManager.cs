@@ -144,11 +144,21 @@ namespace SmoothiesFarm.PlayerDataManager
             --NumberOfUnicorns;
         }
 
-        public bool TryToPay(int a_amountOfSmoothies)
+        public bool TryToPayInSmoothies(int a_amountOfSmoothies)
         {
             if(m_smoothiesPoints >= a_amountOfSmoothies)
             {
                 SmoothiesPoint -= a_amountOfSmoothies;
+                return true;
+            }
+            return false;
+        }
+
+        public bool TryToPayInBonbons(int a_amountOfBonbons)
+        {
+            if (m_bonbons >= a_amountOfBonbons)
+            {
+                Bonbons -= a_amountOfBonbons;
                 return true;
             }
             return false;
@@ -164,5 +174,21 @@ namespace SmoothiesFarm.PlayerDataManager
             m_timeOfEndOfLastDelivering = Time.time;
             ++m_roundSurvived;
         }
+
+        private bool m_hasUnlockedKnife = false;
+        private bool m_hasUnlockedFork = false;
+        public bool HasUnlockedKnife => m_hasUnlockedKnife;
+        public bool HasUnlockedFork => m_hasUnlockedFork;
+
+        public void UnlockKnife()
+        {
+            m_hasUnlockedKnife = true;
+        }
+
+        public void UnlockFork()
+        {
+            m_hasUnlockedFork = true;
+        }
+
     }
 }

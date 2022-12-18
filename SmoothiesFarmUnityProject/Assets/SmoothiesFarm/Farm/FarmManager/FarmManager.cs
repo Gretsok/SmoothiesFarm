@@ -114,7 +114,7 @@ namespace SmoothiesFarm.Farm.FarmManager
         {
             if (m_ownedCellsInfos.Find(c => c.x == x && c.y == y) != null) return;
             if (y < 0 || x < -m_columnsOfCellToAddOnEachSide || x > m_columnsOfCellToAddOnEachSide) return;
-            if (!PlayerDataManager.PlayerDataManager.Instance.TryToPay(PlayerDataManager.PlayerDataManager.Instance.GameplayData.CostToExtendFarm)) return;
+            if (!PlayerDataManager.PlayerDataManager.Instance.TryToPayInSmoothies(PlayerDataManager.PlayerDataManager.Instance.GameplayData.CostToExtendFarm)) return;
 
             var cell = Instantiate(m_ownedFarmCellPrefab,
                                 m_firstOwnedFarm.transform.position + m_firstOwnedFarm.transform.right * x * 10f + m_firstOwnedFarm.transform.forward * y * 10f,

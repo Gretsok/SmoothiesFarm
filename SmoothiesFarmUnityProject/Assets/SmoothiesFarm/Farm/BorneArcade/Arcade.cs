@@ -8,7 +8,7 @@ namespace SmoothiesFarm.Farm
         public void StartMinigame()
         {
             Debug.Log("Minigame !!! Yeye !!!");
-            if (PlayerDataManager.PlayerDataManager.Instance.TryToPay(PlayerDataManager.PlayerDataManager.Instance.GameplayData.CostToPlayOnArcadeMachine))
+            if (PlayerDataManager.PlayerDataManager.Instance.TryToPayInSmoothies(PlayerDataManager.PlayerDataManager.Instance.GameplayData.CostToPlayOnArcadeMachine))
             {
                 SceneManager.LoadSceneAsync(3);
             }
