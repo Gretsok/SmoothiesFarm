@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace SmoothiesFarm.Farm
 {
@@ -9,7 +10,7 @@ namespace SmoothiesFarm.Farm
             Debug.Log("Minigame !!! Yeye !!!");
             if (PlayerDataManager.PlayerDataManager.Instance.TryToPay(PlayerDataManager.PlayerDataManager.Instance.GameplayData.CostToPlayOnArcadeMachine))
             {
-                PlayerDataManager.PlayerDataManager.Instance.AddBonbons(PlayerDataManager.PlayerDataManager.Instance.GameplayData.TEMP_REWARD_ARCADE);
+                SceneManager.LoadSceneAsync(3);
             }
         }
     }

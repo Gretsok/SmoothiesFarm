@@ -20,5 +20,8 @@ MonoBehaviour:
     y: 0
   m_costToPlayOnArcadeMachine: 3
   m_costToExtendFarm: 20
-  TEMP_REWARD_ARCADE: 3
-  m_timeBetweenDelivering: 10
+  m_costToBuyFirstUnicorn: 1
+  m_smoothiesPerUnicornKilled: 2
+  m_timeBetweenDelivering: 20
+  m_unicornPerFarmCell: 10
+  m_sweetHuntDuration: 25

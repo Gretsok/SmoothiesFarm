@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 6632554814236082528}
   - component: {fileID: 6839995537660226303}
   - component: {fileID: -6494292638679474999}
+  - component: {fileID: 2081625673979269573}
+  - component: {fileID: 791488510835948183}
   m_Layer: 0
   m_Name: Bonbon 1
   m_TagString: Untagged
@@ -110,3 +112,32 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.11382507
   m_Center: {x: 0.0000001527369, y: 0.000012073669, z: 0}
+--- !u!114 &2081625673979269573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5119305275072241845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1af7acca324eaf4b8f62a942cca3602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_rotationSpeed: 90
+  m_axis: {x: 0, y: 0, z: 1}
+--- !u!114 &791488510835948183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5119305275072241845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f53b0b0f1f10524bae83b6947ce70e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_firstPosition: {x: 0, y: 0.1, z: 0}
+  m_secondPosition: {x: 0, y: -0.1, z: 0}
+  m_periodDuration: 1

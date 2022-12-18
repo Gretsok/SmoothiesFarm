@@ -36,8 +36,6 @@ namespace SmoothiesFarm.PlayerDataManager
         private int m_smoothiesPerUnicornKilled = 2;
         public int SmoothiesPerUnicornKilled => m_smoothiesPerUnicornKilled;
 
-        public int TEMP_REWARD_ARCADE = 3;
-
         [Header("Misc Rules")]
         [SerializeField]
         private float m_timeBetweenDelivering = 60f;
@@ -45,6 +43,9 @@ namespace SmoothiesFarm.PlayerDataManager
         [SerializeField]
         private int m_unicornPerFarmCell = 10;
         public int UnicornPerFarmCell => m_unicornPerFarmCell;
+        [SerializeField]
+        private float m_sweetHuntDuration = 10f;
+        public float SweetHuntDuration => m_sweetHuntDuration;
 
     }
 }

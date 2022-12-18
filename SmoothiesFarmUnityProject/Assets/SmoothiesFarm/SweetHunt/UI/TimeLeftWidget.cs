@@ -1,14 +1,14 @@
 using TMPro;
 using UnityEngine;
 
-namespace SmoothiesFarm.Farm.Breeding
+namespace SmoothiesFarm.SweetHunt
 {
-    public class TimeBeforeDeliveringWidget : MonoBehaviour
+    public class TimeLeftWidget : MonoBehaviour
     {
         [SerializeField]
         private TextMeshProUGUI m_timerText = null;
 
-        public void SetTimer(float a_timeLeft)
+        public void SetTimeLeft(float a_timeLeft)
         {
             m_timerText.text = a_timeLeft.ToString("0.0");
         }

@@ -16,6 +16,10 @@ namespace SmoothiesFarm.Utils
             {
                 transform.position = m_startPosition;
                 transform.rotation = Quaternion.identity;
+                if(transform.TryGetComponent(out Rigidbody rb))
+                {
+                    rb.velocity = Vector3.zero;
+                }
             }
         }
     }
