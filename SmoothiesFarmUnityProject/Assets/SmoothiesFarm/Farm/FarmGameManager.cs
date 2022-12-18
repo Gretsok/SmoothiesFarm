@@ -20,7 +20,7 @@ namespace SmoothiesFarm.Farm
         private void Start()
         {
             m_deliveringTimeStarted = false;
-            if (PlayerDataManager.PlayerDataManager.Instance.NumberOfUnicorns == 0)
+            if (PlayerDataManager.PlayerDataManager.Instance.NumberOfUnicorns <= 0)
             {
                 if (PlayerDataManager.PlayerDataManager.Instance.TryToPay(PlayerDataManager.PlayerDataManager.Instance.GameplayData.CostToBuyFirstUnicorn))
                 {

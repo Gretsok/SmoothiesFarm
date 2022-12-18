@@ -133,7 +133,7 @@ namespace SmoothiesFarm.RatAttack
             if (m_instantiatedRats == null) 
                 m_instantiatedRats = new List<RatCharacterMotor>();
 
-            for(int i = 0; i < PlayerDataManager.PlayerDataManager.Instance.NumberOfUnicorns / 2f; ++i)
+            for(int i = 0; i < PlayerDataManager.PlayerDataManager.Instance.NumberOfUnicorns / 4f + PlayerDataManager.PlayerDataManager.Instance.RoundSurvived / 4f; ++i)
             {
                 int randCell = Random.Range(0, m_terrainTiles.Count);
                 var rat = Instantiate(m_ratPrefab,
@@ -143,8 +143,8 @@ namespace SmoothiesFarm.RatAttack
                     Quaternion.identity,
                     transform);
                 rat.GetComponent<HealthHandlingController>().OnDeath += HandleRatDeath;
-                rat.GetComponent<Rat.RatController>().OnTargetKilled += HandleRatTargetKilled;
-                rat.GetComponent<Rat.RatController>().SetTarget(GetRandomUnicorn());
+                rat.GetComponent<RatController>().OnTargetKilled += HandleRatTargetKilled;
+                rat.GetComponent<RatController>().SetTarget(GetRandomUnicorn());
             }
             
             m_lastTimeRatSpawned = Time.time;

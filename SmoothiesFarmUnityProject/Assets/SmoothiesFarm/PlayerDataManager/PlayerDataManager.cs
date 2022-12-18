@@ -50,12 +50,16 @@ namespace SmoothiesFarm.PlayerDataManager
         private int m_bonbons = 0;
         private int m_smoothiesPoints = 0;
         private int m_numberOfUnicorns = 0;
+
+        private int m_roundSurvived = 0;
+        public int RoundSurvived => m_roundSurvived;
         private List<Farm.FarmManager.SFarmCellInfos> m_farmCells = null;
         public List<Farm.FarmManager.SFarmCellInfos> FarmCells => m_farmCells;
 
         private float m_timeOfEndOfLastDelivering = 0;
         public float TimeOfEndOfLastDelivering => m_timeOfEndOfLastDelivering;
-
+        private int m_totalSmoothies = 0;
+        public int TotalSmoothies => m_totalSmoothies;
         public int Bonbons 
         { 
             get { return m_bonbons; } 
@@ -74,6 +78,7 @@ namespace SmoothiesFarm.PlayerDataManager
             private set
             {
                 m_smoothiesPoints = value;
+                m_totalSmoothies += value;
                 OnSmoothiesValueChanged?.Invoke(m_smoothiesPoints);
             }
         }
@@ -85,6 +90,10 @@ namespace SmoothiesFarm.PlayerDataManager
             private set
             {
                 m_numberOfUnicorns = value;
+                if(m_numberOfUnicorns < 0)
+                {
+                    m_numberOfUnicorns = 0;
+                }
                 OnUnicornValueChanged?.Invoke(m_numberOfUnicorns);
             }
         }
@@ -144,6 +153,7 @@ namespace SmoothiesFarm.PlayerDataManager
         public void NotifyEndOfDelivering()
         {
             m_timeOfEndOfLastDelivering = Time.time;
+            ++m_roundSurvived;
         }
     }
 }

@@ -43,7 +43,7 @@ namespace SmoothiesFarm.Farm.Breeding.UI
         protected override void OnDisable()
         {
             base.OnDisable();
-            if (CharacterMotor.TryGetComponent(out FarmerBreedingController breedingController))
+            if (CharacterMotor && CharacterMotor.TryGetComponent(out FarmerBreedingController breedingController))
             {
                 breedingController.OnInteractionIndicationUpdated -= HandleInteractionIndicationUpdated;
             }
