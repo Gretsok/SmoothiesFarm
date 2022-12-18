@@ -221,6 +221,7 @@ MonoBehaviour:
   m_baseBall: {fileID: 8186725172188944948}
   m_knife: {fileID: 771772784794831974}
   m_fork: {fileID: 4359009014815762924}
+  m_animationController: {fileID: 3822626370835481169}
 --- !u!1 &6122256028693133948
 GameObject:
   m_ObjectHideFlags: 0
@@ -1027,6 +1028,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fourche
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2c663793b3d2bc640ba43b9cc33e9e25,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3584984617453414799, guid: 2c663793b3d2bc640ba43b9cc33e9e25,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1245,7 +1251,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 135a42c27c7070d439c749469f10fda7,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 135a42c27c7070d439c749469f10fda7, type: 3}

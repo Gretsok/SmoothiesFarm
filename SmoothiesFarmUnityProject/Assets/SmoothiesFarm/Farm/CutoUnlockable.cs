@@ -18,8 +18,9 @@ namespace SmoothiesFarm.Farm
             if(PlayerDataManager.PlayerDataManager.Instance.TryToPayInBonbons(PlayerDataManager.PlayerDataManager.Instance.GameplayData.BonbonCostToUnlockKnife))
             {
                 PlayerDataManager.PlayerDataManager.Instance.UnlockKnife();
+                gameObject.SetActive(false);
             }
-            gameObject.SetActive(false);
+            
         }
     }
 }

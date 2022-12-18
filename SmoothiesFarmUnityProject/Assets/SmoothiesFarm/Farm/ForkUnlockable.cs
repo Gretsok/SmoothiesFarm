@@ -18,8 +18,9 @@ namespace SmoothiesFarm.Farm
             if (PlayerDataManager.PlayerDataManager.Instance.TryToPayInBonbons(PlayerDataManager.PlayerDataManager.Instance.GameplayData.BonbonCostToUnlockFork))
             {
                 PlayerDataManager.PlayerDataManager.Instance.UnlockFork();
+                gameObject.SetActive(false);
             }
-            gameObject.SetActive(false);
+            
         }
     }
 }

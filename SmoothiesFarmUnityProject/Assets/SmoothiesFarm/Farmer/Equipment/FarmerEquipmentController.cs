@@ -15,6 +15,9 @@ namespace SmoothiesFarm.Farmer.Equipment
         [SerializeField]
         private GameObject m_fork = null;
 
+        [SerializeField]
+        private FarmerModelAnimationController m_animationController = null;
+
         private void Awake()
         {
             if(m_hasWeapon)
@@ -44,6 +47,7 @@ namespace SmoothiesFarm.Farmer.Equipment
             m_baseBall.SetActive(false);
             m_knife.SetActive(false);
             m_fork.SetActive(false);
+            m_animationController.SetBaseball(false);
         }
 
         private void EquipeBaseBall()
@@ -52,6 +56,7 @@ namespace SmoothiesFarm.Farmer.Equipment
             m_baseBall.SetActive(true);
             m_knife.SetActive(false);
             m_fork.SetActive(false);
+            m_animationController.SetBaseball(true);
         }
 
         private void EquipKnife()
@@ -60,6 +65,7 @@ namespace SmoothiesFarm.Farmer.Equipment
             m_baseBall.SetActive(false);
             m_knife.SetActive(true);
             m_fork.SetActive(false);
+            m_animationController.SetBaseball(true);
         }
 
         private void EquipFork()
@@ -68,6 +74,7 @@ namespace SmoothiesFarm.Farmer.Equipment
             m_baseBall.SetActive(false);
             m_knife.SetActive(false);
             m_fork.SetActive(true);
+            m_animationController.SetBaseball(false);
         }
     }
 }
