@@ -34,7 +34,10 @@ public class SpawnManager : MonoBehaviour
     {
         GetAvailableSpawnPoint();
         int i = Random.Range(0, _SpawnPoint.Count - 1);
-        Instantiate(Bonbon, _SpawnPoint[i].transform);
+        
+        Bonbon bonbon =  Instantiate(Bonbon, _SpawnPoint[i].transform);
+        bonbon.transform.localPosition = Vector3.zero;
+        _SpawnPoint[i].Setbonbon(bonbon);
         SpawnPoint.Find(S => S = _SpawnPoint[i]).IsAvailable =false;
     }
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-
+using SmoothiesFarm.Farmer;
 
 public class Bonbon : MonoBehaviour
 {
@@ -20,10 +20,10 @@ public class Bonbon : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("FarmerCharacter"))
+        if (other.gameObject.TryGetComponent(out FarmerCharacterMotor characterMotor))
         {
             Destroy(this);
-            OnBonbonCaught.Invoke();
+            OnBonbonCaught?.Invoke();
         }
     }
 
