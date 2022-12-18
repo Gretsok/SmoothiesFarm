@@ -27,6 +27,9 @@ namespace SmoothiesFarm.PlayerDataManager
         [SerializeField]
         private int m_costToExtendFarm = 5;
         public int CostToExtendFarm => m_costToExtendFarm;
+        [SerializeField]
+        private int m_costToBuyFirstUnicorn = 1;
+        public int CostToBuyFirstUnicorn => m_costToBuyFirstUnicorn;
 
         [Header("Reward")]
         public int TEMP_REWARD_ARCADE = 3;

@@ -94,15 +94,20 @@ namespace SmoothiesFarm.Farm.FarmManager
 
             for(int i = 0; i < PlayerDataManager.PlayerDataManager.Instance.NumberOfUnicorns; ++i)
             {
-                int randCell = UnityEngine.Random.Range(0, m_instantiatedOwnedFarmCell.Count);
-                var unicorn = Instantiate(m_unicornMotorPrefab,
-                    m_instantiatedOwnedFarmCell[randCell].transform.position + Vector3.up
-                    + m_instantiatedOwnedFarmCell[randCell].transform.forward * UnityEngine.Random.Range(-3f, 3f)
-                    + m_instantiatedOwnedFarmCell[randCell].transform.right * UnityEngine.Random.Range(-3f, 3f),
-                    Quaternion.identity,
-                    transform);
-                m_instantiatedUnicorns.Add(unicorn);
+                AddUnicorn();
             }
+        }
+
+        public void AddUnicorn()
+        {
+            int randCell = UnityEngine.Random.Range(0, m_instantiatedOwnedFarmCell.Count);
+            var unicorn = Instantiate(m_unicornMotorPrefab,
+                m_instantiatedOwnedFarmCell[randCell].transform.position + Vector3.up
+                + m_instantiatedOwnedFarmCell[randCell].transform.forward * UnityEngine.Random.Range(-3f, 3f)
+                + m_instantiatedOwnedFarmCell[randCell].transform.right * UnityEngine.Random.Range(-3f, 3f),
+                Quaternion.identity,
+                transform);
+            m_instantiatedUnicorns.Add(unicorn);
         }
 
         private void HandleExtensionRequested(int x, int y)

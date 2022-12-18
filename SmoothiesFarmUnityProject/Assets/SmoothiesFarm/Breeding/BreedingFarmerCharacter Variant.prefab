@@ -62,10 +62,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6122256028693133937, guid: 5f95a536bff04d84fa7349ee3a9d6190,
+        type: 3}
+      propertyPath: m_attackCooldown
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6122256028693133948, guid: 5f95a536bff04d84fa7349ee3a9d6190,
         type: 3}
       propertyPath: m_Name
-      value: BreedingFarmerCharacter
+      value: BreedingFarmerCharacter Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6122256029636136755, guid: 5f95a536bff04d84fa7349ee3a9d6190,
         type: 3}

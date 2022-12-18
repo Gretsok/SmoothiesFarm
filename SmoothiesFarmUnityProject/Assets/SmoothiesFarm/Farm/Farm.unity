@@ -1539,7 +1539,7 @@ PrefabInstance:
     - target: {fileID: 833155387108277953, guid: 085a98d19a536a94aa06b7cc7c3d66f1,
         type: 3}
       propertyPath: m_FrequencyGain
-      value: 0.03
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 833155387774552962, guid: 085a98d19a536a94aa06b7cc7c3d66f1,
         type: 3}
@@ -3869,6 +3869,18 @@ PrefabInstance:
       objectReference: {fileID: 1278042509}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe019a9dfb672374faf31bb963f65ee4, type: 3}
+--- !u!114 &607065343787135276 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 607065343349583096, guid: fe019a9dfb672374faf31bb963f65ee4,
+    type: 3}
+  m_PrefabInstance: {fileID: 607065343787135275}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 500b1f37d6a057c4ea5ff188606beb69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3629263687723437273
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4051,6 +4063,11 @@ PrefabInstance:
       propertyPath: m_characterMotor
       value: 
       objectReference: {fileID: 869897626}
+    - target: {fileID: 3707263089129114997, guid: 4b4e6a973433e6d478ca29b7570f2419,
+        type: 3}
+      propertyPath: m_farmGameManager
+      value: 
+      objectReference: {fileID: 607065343787135276}
     - target: {fileID: 4585561347193392407, guid: 4b4e6a973433e6d478ca29b7570f2419,
         type: 3}
       propertyPath: m_AnchorMax.y

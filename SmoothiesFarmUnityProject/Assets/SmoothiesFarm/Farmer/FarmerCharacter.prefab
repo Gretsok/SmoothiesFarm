@@ -265,7 +265,7 @@ MonoBehaviour:
   m_movementSpeed: 5
   m_cameraSensitivy: 20
   m_cameraVerticalClampValues: {x: -45, y: 45}
-  m_attackCooldown: 1
+  m_attackCooldown: 0.5
   m_jumpVelocity: 7
   m_cameraTransform: {fileID: 6122256029214484216}
   m_groundDetection: {fileID: 6122256027758075946}
