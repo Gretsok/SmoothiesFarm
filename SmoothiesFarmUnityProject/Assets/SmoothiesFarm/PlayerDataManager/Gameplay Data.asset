@@ -24,6 +24,6 @@ MonoBehaviour:
   m_bonbonCostToUnlockKnife: 4
   m_bonbonCostToUnlockFork: 8
   m_smoothiesPerUnicornKilled: 2
-  m_timeBetweenDelivering: 20
+  m_timeBetweenDelivering: 35
   m_unicornPerFarmCell: 10
   m_sweetHuntDuration: 25
