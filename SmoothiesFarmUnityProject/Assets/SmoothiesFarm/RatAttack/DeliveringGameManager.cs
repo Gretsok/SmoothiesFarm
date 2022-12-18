@@ -1,3 +1,4 @@
+using SmoothiesFarm.RatAttack.Rat;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -6,6 +7,8 @@ namespace SmoothiesFarm.RatAttack
 {
     public class DeliveringGameManager : MonoBehaviour
     {
+        private float m_timeOfStart = 0;
+
         [Header("Terrain Generation")]
         [SerializeField]
         private float m_numberOfUnicornsPerTile = 5;
@@ -25,9 +28,13 @@ namespace SmoothiesFarm.RatAttack
 
         [Header("Rats Instantiation")]
         [SerializeField]
-        private AnimationCurve m_spawnRateCurve = AnimationCurve.Linear(0f, 3f, 1f, 0.5f);
+        private RatCharacterMotor m_ratPrefab = null;
+        [SerializeField]
+        private AnimationCurve m_spawnCooldownPerTwoUnicornCurve = AnimationCurve.Linear(0f, 5f, 1f, 2f);
         [SerializeField]
         private float m_timeToReachMaxRate = 10f;
+        private float m_lastTimeRatSpawned = 0;
+        private List<RatCharacterMotor> m_instantiatedRats = null;
 
         [Header("Rats Death Feedback")]
         [SerializeField]
@@ -42,6 +49,7 @@ namespace SmoothiesFarm.RatAttack
 
         private void Start()
         {
+            m_timeOfStart = Time.time;
             GenerateTerrain();
             InstantiateUnicorns();
         }
@@ -107,6 +115,60 @@ namespace SmoothiesFarm.RatAttack
                     m_terrainTiles.Add(tile);
                 }
             }
+        }
+
+        private void Update()
+        {
+            float currentSpawnCooldown = m_spawnCooldownPerTwoUnicornCurve.Evaluate((Time.time - m_timeOfStart) / m_timeToReachMaxRate);
+            if(Time.time - m_lastTimeRatSpawned > currentSpawnCooldown)
+            {
+                SpawnRat();
+            }
+        }
+
+        private void SpawnRat()
+        {
+            if (m_instantiatedRats == null) 
+                m_instantiatedRats = new List<RatCharacterMotor>();
+
+            for(int i = 0; i < PlayerDataManager.PlayerDataManager.Instance.NumberOfUnicorns / 2f; ++i)
+            {
+                int randCell = Random.Range(0, m_terrainTiles.Count);
+                var rat = Instantiate(m_ratPrefab,
+                    m_terrainTiles[randCell].transform.position + Vector3.up
+                    + m_terrainTiles[randCell].transform.forward * Random.Range(-3f, 3f)
+                    + m_terrainTiles[randCell].transform.right * Random.Range(-3f, 3f),
+                    Quaternion.identity,
+                    transform);
+                rat.GetComponent<HealthHandlingController>().OnDeath += HandleRatDeath;
+                rat.GetComponent<Rat.RatController>().OnTargetKilled += HandleRatTargetKilled;
+                rat.GetComponent<Rat.RatController>().SetTarget(GetRandomUnicorn());
+            }
+            
+            m_lastTimeRatSpawned = Time.time;
+        }
+
+        private void HandleRatTargetKilled(RatController obj)
+        {
+            obj.SetTarget(GetRandomUnicorn());
+        }
+
+        private void HandleRatDeath(HealthHandlingController arg1, bool arg2)
+        {
+            if (m_ratDeathVFX)
+            {
+                var vfx = Instantiate(m_ratDeathVFX, arg1.transform.position + Vector3.up * 0.5f, Quaternion.identity);
+                vfx.Play();
+            }
+            m_instantiatedRats.Remove(arg1.GetComponent<RatCharacterMotor>());
+            Destroy(arg1.gameObject);
+        }
+
+        private Farm.Unicorn.UnicornCharacterMotor GetRandomUnicorn()
+        {
+            if(m_instantiatedUnicorns.Count > 0)
+                return m_instantiatedUnicorns[Random.Range(0, m_instantiatedUnicorns.Count)];
+            return null;
         }
     }
 }

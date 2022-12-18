@@ -36,6 +36,10 @@ namespace SmoothiesFarm.RatAttack
                 {
                     collisionHandler.CharacterMotor.GetComponent<HealthHandlingController>().TakeDamage(m_damageToDeal, true);  
                 }
+                else if (hitInfo.collider.TryGetComponent(out HealthHandlingController healthController))
+                {
+                    healthController.TakeDamage(m_damageToDeal, true);
+                }
             }
         }
     }
